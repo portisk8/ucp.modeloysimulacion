@@ -33,6 +33,7 @@ class FormularioPage extends Component {
           onFinish={this.onFinish}
           onFinishFailed={this.onFinishFailed}
           style={{ textAlign: "center" }}
+          size={"large"}
         >
           <Row justify="center">
             <Col span={6}>
@@ -48,12 +49,12 @@ class FormularioPage extends Component {
               </Form.Item>
 
               <div>¿Cual es su Peso actual?</div>
-              <Form.Item name="input-number" noStyle>
+              <Form.Item name="pesoActual" noStyle>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>¿Cual es su Estatura?</div>
-              <Form.Item name="input-number" noStyle>
+              <Form.Item name="estatura" noStyle>
                 <InputNumber min={1} max={100} />
               </Form.Item>
             </Col>
@@ -69,17 +70,17 @@ class FormularioPage extends Component {
               </Form.Item> */}
 
               <div>Cual es su Edad?</div>
-              <Form.Item name="input-number" noStyle>
+              <Form.Item name="edad" noStyle>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>¿Cual es su Peso Objetivo?</div>
-              <Form.Item name="input-number" noStyle>
+              <Form.Item name="pesoObjetivo" noStyle>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>En cuantos dias pretende conseguir su peso objetivo?</div>
-              <Form.Item name="input-number" noStyle>
+              <Form.Item name="diasParaPesObjetivo" noStyle>
                 <InputNumber min={1} max={100} />
               </Form.Item>
               {/* <Form.Item

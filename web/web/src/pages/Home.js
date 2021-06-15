@@ -6,11 +6,12 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+
         <Row>
-          <Col span={24}>DIETIPS</Col>
+          <Col span={24} style={{ fontSize: 34 ,textAlign: "center"}}>DIETIPS</Col>
         </Row>
         <Row>
-          <Col span={24} style={{ textAlign: "center" }}>
+          <Col span={24} style={{ textAlign: "center", fontSize: 24 }}>
             Alcanza tu peso ideal,comiendo tus platos favoritos.
             <br />
             ¿Qué esperás?

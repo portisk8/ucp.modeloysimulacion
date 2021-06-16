@@ -6,6 +6,8 @@ import { withRouter } from "react-router-dom";
 const plainOptions = ['Diabetes','Sobrepeso']
 const plainOptions2 = ['Celiaquia','Aterosclerosis']
 const plainOptions3 = ['Anorexia','Bulimia']
+const activies = document.getElementById("activitiesButtons")
+const results= document.getElementById("Results")
 
 const options = [ { label: 'Diabetes', value: 'Diabetes' },
                   { label: 'Sobrepeso', value: 'Sobrepeso' },
@@ -19,20 +21,28 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
+
+
 class FormularioPage extends Component {
   onFinish = (values) => {
     console.log("Success:", values);
+    console.log(activies);
+    console.log(results);
+    results.style.display = "show";
+    activies.style.display = "show";
   };
 
   onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
+  
+
   render() {
     return (
-      <div>
-        <div style={{ textAlign: "center" }}>
-          <h1>Ingrese los siguientes datos:</h1>
+      <div className="body">
+        <div style={{ textAlign: "center"}}>
+          <h1 style={{color:"white"}}>Ingrese los siguientes datos:</h1>
         </div>
         <Form
           name="basic"
@@ -40,7 +50,7 @@ class FormularioPage extends Component {
           initialValues={{ remember: true }}
           onFinish={this.onFinish}
           onFinishFailed={this.onFinishFailed}
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center", color:"white"}}
           size={"large"}
         >
           <Row justify="center">
@@ -107,7 +117,7 @@ class FormularioPage extends Component {
           {/* Enfermedades*/}
           <div style={{padding: 20 }}>
             <br></br>
-            <h1>Indique si padece de alguna de las siguientes enfermedades</h1>
+            <h1 style={{color:"white"}}>Indique si padece de alguna de las siguientes enfermedades</h1>
           </div>
           
           <Row>
@@ -128,7 +138,7 @@ class FormularioPage extends Component {
 
           {/*Habitos Alimentcios */}
             <div>
-              <h1>¿Cuales son tus habitos alimenticios?</h1>
+              <h1 style={{color:"white"}}>¿Cuales son tus habitos alimenticios?</h1>
             </div>
           <Row justify="center">
               <Col span={8}>
@@ -163,69 +173,72 @@ class FormularioPage extends Component {
             </Col>
           </Row>
           <Form.Item>
-              <Button style={{textAlign:"center"}} type="primary" htmlType="submit">
+              <Button id="calcular" style={{textAlign:"center"}} type="primary" htmlType="submit">
                 Calcular
               </Button>
           </Form.Item>
-          <Col>
-          <div><h1>Escoge un plan en base a la cantidad de actividad fisica que estes dispuesto a realizar:</h1></div>
-          <Button>Poco o ningun ejercicio</Button>
-          <h6>Con este nivel de actividad fisica deberias de consumir 858 kcal diariamente, considerablemente menos de las que consumes actualmente</h6>
-          <Button>Ejercicio ligero (1-3 dias a la semana)</Button>
-          <h6>Con este nivel de actividad fisica deberias de consumir 1118.6 kcal diariamente. Recomendable para personas no habituadas a ejecitarse</h6>
-          <Button>Ejercicio moderado (3-5 dias a la semana)</Button>
-          <h6>Con este nivel de actividad fisica deberias de consumir 1162.8 kcal diariamente</h6>
-          <Button>Deportista (6-7 dias a la semana)</Button>
-          <h6>Deberias consumir aproximadamente 1209.7 kcal diariamente, no recomendable en caso para empezar</h6>
-          <Button>Atleta (Entrenamiento mañana y tarde)</Button>
-          <h6>Con este nivel de actividad fisica deberias de consumir 1152.2 kcal diariamente</h6>
-          </Col>
+          
+          <div className="activitiesButtons" id = "activitiesButtons"> 
+            <Col>
+              <div><h1 style={{color:"white"}}>Escoge un plan en base a la cantidad de actividad fisica que estes dispuesto a realizar:</h1></div>
+              <Button>Poco o ningun ejercicio</Button>
+              <h6 style={{color:"white"}} >Con este nivel de actividad fisica deberias de consumir 858 kcal diariamente, considerablemente menos de las que consumes actualmente</h6>
+              <Button>Ejercicio ligero (1-3 dias a la semana)</Button>
+              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1118.6 kcal diariamente. Recomendable para personas no habituadas a ejecitarse</h6>
+              <Button>Ejercicio moderado (3-5 dias a la semana)</Button>
+              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1162.8 kcal diariamente</h6>
+              <Button>Deportista (6-7 dias a la semana)</Button>
+              <h6 style={{color:"white"}}>Deberias consumir aproximadamente 1209.7 kcal diariamente, no recomendable en caso para empezar</h6>
+              <Button>Atleta (Entrenamiento mañana y tarde)</Button>
+              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1152.2 kcal diariamente</h6>
+            </Col>
+          </div>
 
         {/*Calorias Finales*/}
-
-        <div><br></br><h1>Tus calorías a consumir son: 2,147 - 2,637 kcal</h1><br></br></div> 
-        <Row style={{padding: 20}} justify="center">
-           <Col span={4}>
-              <Image width={180} src="./images/image_19.png" alt="Atleta"/>
-              </Col>
+        <div id="Results" style={{display: "none"}}> 
+          <div><br></br><h1 style={{color:"white"}}>Tus calorías a consumir son: 2,147 - 2,637 kcal</h1><br></br></div> 
+          <Row style={{padding: 20}} justify="center">
             <Col span={4}>
-                <div>
-                  <h3>Mientras te mantengas en este rango, ganarás masa muscular de manera limpia.</h3>
-                  <h3>Todos los alimentos te aportan una cantidad de calorías, a través de una combinacion de proteínas, carbohidratos y grasa</h3>
-                </div>
-            </Col>
-        </Row>
+                <Image width={180} src="./images/image_19.png" alt="Atleta"/>
+                </Col>
+              <Col span={4}>
+                  <div>
+                    <h3 style={{color:"white"}}>Mientras te mantengas en este rango, ganarás masa muscular de manera limpia.</h3>
+                    <h3 style={{color:"white"}}>Todos los alimentos te aportan una cantidad de calorías, a través de una combinacion de proteínas, carbohidratos y grasa</h3>
+                  </div>
+              </Col>
+          </Row>
 
         {/*Proteinas Finales*/}
 
-        <div><br></br><h1>Tu proteina a consumir son: 96 - 117 g</h1><br></br></div> 
-        <Row style={{padding: 20}} justify="center">
-           <Col span={4}>
-              <Image width={180} src="./images/image_19.png" alt="Atleta"/>
-              </Col>
+          <div><br></br><h1 style={{color:"white"}}>Tu proteina a consumir son: 96 - 117 g</h1><br></br></div> 
+          <Row style={{padding: 20}} justify="center">
             <Col span={4}>
-                <div>
-                  <h3>La proteina es esencial para desarrollar la masa muscular, especialmente cuando es combinada con entrenamientos de fuerza.</h3>
-                  <h3>Intenta mantenerte en este rango para maximizar los resultados</h3>
-                </div>
+                <Image width={180} src="./images/image_19.png" alt="Atleta"/>
+                </Col>
+              <Col span={4}>
+                  <div>
+                    <h3 style={{color:"white"}}>La proteina es esencial para desarrollar la masa muscular, especialmente cuando es combinada con entrenamientos de fuerza.</h3>
+                    <h3 style={{color:"white"}}>Intenta mantenerte en este rango para maximizar los resultados</h3>
+                  </div>
+              </Col>
+          </Row>
+        
+          <div><br></br><h1 style={{color:"white"}}>Recomendacion de plan alimenticio:</h1><br></br></div>
+          <Row style={{padding: 20}} justify="center">
+            <Col span={8}>
+                <h3 style={{color:"white"}}>Opción A:</h3>
+                <h3 style={{color:"white"}} >Opción B:</h3>
+                <h3 style={{color:"white"}}>Opción C:</h3>
             </Col>
-        </Row>
+            <Col span={8}>
 
-        <div><br></br><h1>Recomendacion de plan alimenticio:</h1><br></br></div>
-        <Row style={{padding: 20}} justify="center">
-          <Col span={8}>
               <h3>Opción A:</h3>
               <h3>Opción B:</h3>
               <h3>Opción C:</h3>
-          </Col>
-          <Col span={8}>
-
-            <h3>Opción A:</h3>
-            <h3>Opción B:</h3>
-            <h3>Opción C:</h3>
-          </Col>
-        </Row>
-
+            </Col>
+          </Row>
+        </div>
         </Form>
       </div>
     );

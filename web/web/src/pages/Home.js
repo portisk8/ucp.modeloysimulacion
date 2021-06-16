@@ -5,23 +5,34 @@ import { withRouter } from "react-router-dom";
 class HomePage extends Component {
   render() {
     return (
-      <div>
+      <div className = "e146_389">
 
         <Row>
-          <Col span={24} style={{ fontSize: 34 ,textAlign: "center"}}>DIETIPS</Col>
-        </Row>
-        <Row>
-          <Col span={24} style={{ textAlign: "center", fontSize: 24 }}>
-            Alcanza tu peso ideal,comiendo tus platos favoritos.
-            <br />
-            ¿Qué esperás?
+          <Col>
+            <div className = "e146_390">
+              Dietips
+            </div>
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Button onClick={() => this.props.history.push("/formulario")}>
+          <Col span={24}>
+            <div className="e146_391">
+              Alcanza tu peso ideal,comiendo tus platos favoritos.
+            </div>
+            <div className="e146_392">
+              ¿Qué esperás?
+            </div>
+            <br />
+          </Col>
+        </Row>
+        <Row>
+          <Col span={8}>
+            <div className = "e146_393">
+              <Button onClick={() => this.props.history.push("/formulario")}>
               Consigue tu plan
             </Button>
+            </div>
+            
           </Col>
         </Row>
       </div>

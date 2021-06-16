@@ -56,7 +56,7 @@
 }
 
 .activitiesButtons{
-  display: none;
+  display: block;
 }
 
 .e146_390 { 
@@ -78,6 +78,7 @@
 	font-size:288px;
 	letter-spacing:0;
 }
+
 
 .e146_391 { 
 	color:rgba(255, 255, 255, 1);

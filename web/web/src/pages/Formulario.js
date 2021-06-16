@@ -21,13 +21,61 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
+var desMMerienda = '{ "desayuno" : [' +
+'{ "alimento":"Pan integral" , "Calorias":"176,8" },' +
+'{ "alimento":"Queso fresco" , "Calorias":"49,5" },' +
+'{ "alimento":"Tomate" , "Calorias":"43,9" } ]}';
+
+var almuerzo = '{ "almuerzo" : [' +
+'{ "alimento":"Albóndigas" , "Calorias":"202" },' +
+'{ "alimento":"Arroz frito" , "Calorias":"186" },' +
+'{ "alimento":"Arroz integral" , "Calorias":"362" } ]}';
+
+var cena = '{ "cena" : [' +
+'{ "alimento":"Albóndigas" , "Calorias":"202" },' +
+'{ "alimento":"Arroz frito" , "Calorias":"186" },' +
+'{ "alimento":"Arroz integral" , "Calorias":"362" } ]}';
+
+desMMerienda = JSON.parse(desMMerienda);
+almuerzo = JSON.parse(almuerzo);
+cena = JSON.parse(cena);
+
+console.log(almuerzo)
+
+
+function calcular(cal,numComidas){
+  if(numComidas = 3){
+    var d = cal*0.25
+    var a = cal*0.45
+    var c = cal*0.3
+    var calxcomida = {d,a,c}
+    return calxcomida
+  }
+  else if(numComidas = 4){
+    var d = cal*0.2
+    var a = cal*0.4
+    var m = cal*0.1
+    var  c = cal*0.3
+    calxcomida = {d,a,m,c}
+    return calxcomida
+  }
+  else{
+    var d = cal*0.2
+    var mm = cal*0.1
+    var a = cal*0.3
+    var m = cal*0.1
+    var c = cal*0.3
+    var calxcomida = {d,mm,a,m,c}
+    return calxcomida
+  }
+}
 
 
 class FormularioPage extends Component {
   onFinish = (values) => {
     console.log("Success:", values);
-    console.log(activies);
-    console.log(results);
+    console.log(almuerzo)
+    console.log(activies.style.display);
     results.style.display = "show";
     activies.style.display = "show";
   };
@@ -123,15 +171,15 @@ class FormularioPage extends Component {
           <Row>
             <Col span={24} style={{ textAlign: "center"}}>
                   <Row>
-                    <Col span={24} style={{padding: 20}}>
-                      <Checkbox.Group options={plainOptions} onChange={onChange}/>
-                    </Col>
-                    <Col span={24} style={{padding: 20}}>
-                      <Checkbox.Group options={plainOptions2} onChange={onChange}/>
-                    </Col>
-                    <Col span={24} style={{padding: 20}}>
-                      <Checkbox.Group options={plainOptions3} onChange={onChange}/>
-                    </Col>
+                      <Col span={24} style={{padding: 20}}>
+                        <Checkbox.Group options={plainOptions} onChange={onChange}/>
+                      </Col>
+                      <Col span={24} style={{padding: 20}}>
+                        <Checkbox.Group options={plainOptions2} onChange={onChange}/>
+                      </Col>
+                      <Col span={24} style={{padding: 20}}>
+                        <Checkbox.Group options={plainOptions3} onChange={onChange}/>
+                      </Col>
                   </Row>
               </Col>
           </Row>
@@ -149,12 +197,9 @@ class FormularioPage extends Component {
                   style={{size: 24}}
                 >
                   <Select allowClear>
-                    <Select.Option value="1">1</Select.Option>
-                    <Select.Option value="2">2</Select.Option>
                     <Select.Option value="3">3</Select.Option>
                     <Select.Option value="4">4</Select.Option>
                     <Select.Option value="5">5</Select.Option>
-                    <Select.Option value="6">6</Select.Option>
                   </Select>
                 </Form.Item>
               </Col>
@@ -173,72 +218,10 @@ class FormularioPage extends Component {
             </Col>
           </Row>
           <Form.Item>
-              <Button id="calcular" style={{textAlign:"center"}} type="primary" htmlType="submit">
+              <Button id="calcular" style={{textAlign:"center"}} type="primary" htmlType="submit" onClick={() => this.props.history.push("/actividades")}>
                 Calcular
               </Button>
           </Form.Item>
-          
-          <div className="activitiesButtons" id = "activitiesButtons"> 
-            <Col>
-              <div><h1 style={{color:"white"}}>Escoge un plan en base a la cantidad de actividad fisica que estes dispuesto a realizar:</h1></div>
-              <Button>Poco o ningun ejercicio</Button>
-              <h6 style={{color:"white"}} >Con este nivel de actividad fisica deberias de consumir 858 kcal diariamente, considerablemente menos de las que consumes actualmente</h6>
-              <Button>Ejercicio ligero (1-3 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1118.6 kcal diariamente. Recomendable para personas no habituadas a ejecitarse</h6>
-              <Button>Ejercicio moderado (3-5 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1162.8 kcal diariamente</h6>
-              <Button>Deportista (6-7 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Deberias consumir aproximadamente 1209.7 kcal diariamente, no recomendable en caso para empezar</h6>
-              <Button>Atleta (Entrenamiento mañana y tarde)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1152.2 kcal diariamente</h6>
-            </Col>
-          </div>
-
-        {/*Calorias Finales*/}
-        <div id="Results" style={{display: "none"}}> 
-          <div><br></br><h1 style={{color:"white"}}>Tus calorías a consumir son: 2,147 - 2,637 kcal</h1><br></br></div> 
-          <Row style={{padding: 20}} justify="center">
-            <Col span={4}>
-                <Image width={180} src="./images/image_19.png" alt="Atleta"/>
-                </Col>
-              <Col span={4}>
-                  <div>
-                    <h3 style={{color:"white"}}>Mientras te mantengas en este rango, ganarás masa muscular de manera limpia.</h3>
-                    <h3 style={{color:"white"}}>Todos los alimentos te aportan una cantidad de calorías, a través de una combinacion de proteínas, carbohidratos y grasa</h3>
-                  </div>
-              </Col>
-          </Row>
-
-        {/*Proteinas Finales*/}
-
-          <div><br></br><h1 style={{color:"white"}}>Tu proteina a consumir son: 96 - 117 g</h1><br></br></div> 
-          <Row style={{padding: 20}} justify="center">
-            <Col span={4}>
-                <Image width={180} src="./images/image_19.png" alt="Atleta"/>
-                </Col>
-              <Col span={4}>
-                  <div>
-                    <h3 style={{color:"white"}}>La proteina es esencial para desarrollar la masa muscular, especialmente cuando es combinada con entrenamientos de fuerza.</h3>
-                    <h3 style={{color:"white"}}>Intenta mantenerte en este rango para maximizar los resultados</h3>
-                  </div>
-              </Col>
-          </Row>
-        
-          <div><br></br><h1 style={{color:"white"}}>Recomendacion de plan alimenticio:</h1><br></br></div>
-          <Row style={{padding: 20}} justify="center">
-            <Col span={8}>
-                <h3 style={{color:"white"}}>Opción A:</h3>
-                <h3 style={{color:"white"}} >Opción B:</h3>
-                <h3 style={{color:"white"}}>Opción C:</h3>
-            </Col>
-            <Col span={8}>
-
-              <h3>Opción A:</h3>
-              <h3>Opción B:</h3>
-              <h3>Opción C:</h3>
-            </Col>
-          </Row>
-        </div>
         </Form>
       </div>
     );

@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from "./pages/Home";
 import FormularioPage from "./pages/Formulario";
+import Actividades from "./pages/actividades";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           </Route>
           <Route path="/formulario">
             <FormularioPage />
+          </Route>
+          <Route path="/actividades">
+            <Actividades />
           </Route>
           <Route path="/">
             <HomePage />

@@ -5,20 +5,24 @@ import { withRouter } from "react-router-dom";
 class Actividades extends Component {
   render() {
     return (
-      <div className = "e146_389">
+      <div className = "body" style={{textAlign:"center", padding: 20}}>
           <div className="activitiesButtons" id = "activitiesButtons"> 
             <Col>
-              <div><h1 style={{color:"white"}}>Escoge un plan en base a la cantidad de actividad fisica que estes dispuesto a realizar:</h1></div>
+              <div><h1 style={{color:"white", padding: 20}}>Escoge un plan en base a la cantidad de actividad fisica que estes dispuesto a realizar:</h1></div>
               <Button>Poco o ningun ejercicio</Button>
-              <h6 style={{color:"white"}} >Con este nivel de actividad fisica deberias de consumir 858 kcal diariamente, considerablemente menos de las que consumes actualmente</h6>
+              <h6 style={{color:"white", padding: 20}} >Con este nivel de actividad fisica deberias de consumir 858 kcal diariamente, considerablemente menos de las que consumes actualmente</h6>
               <Button>Ejercicio ligero (1-3 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1118.6 kcal diariamente. Recomendable para personas no habituadas a ejecitarse</h6>
+              <h6 style={{color:"white", padding: 20}}>Con este nivel de actividad fisica deberias de consumir 1118.6 kcal diariamente. Recomendable para personas no habituadas a ejecitarse</h6>
               <Button>Ejercicio moderado (3-5 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1162.8 kcal diariamente</h6>
+              <h6 style={{color:"white", padding: 20}}>Con este nivel de actividad fisica deberias de consumir 1162.8 kcal diariamente</h6>
               <Button>Deportista (6-7 dias a la semana)</Button>
-              <h6 style={{color:"white"}}>Deberias consumir aproximadamente 1209.7 kcal diariamente, no recomendable en caso para empezar</h6>
+              <h6 style={{color:"white", padding: 20}}>Deberias consumir aproximadamente 1209.7 kcal diariamente, no recomendable en caso para empezar</h6>
               <Button>Atleta (Entrenamiento mañana y tarde)</Button>
-              <h6 style={{color:"white"}}>Con este nivel de actividad fisica deberias de consumir 1152.2 kcal diariamente</h6>
+              <h6 style={{color:"white", padding: 20}}>Con este nivel de actividad fisica deberias de consumir 1152.2 kcal diariamente</h6>
+            </Col>
+            <Col>
+            <Button id="calcular" style={{textAlign:"center"}} type="primary" htmlType="submit" onClick={() => this.props.history.push("/Formulario")}>Regresar</Button>
+            <Button id="calcular" style={{textAlign:"center"}} type="primary" htmlType="submit" onClick={() => this.props.history.push("/actividades")}>Obtener Plan</Button>
             </Col>
           </div>
 

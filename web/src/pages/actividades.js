@@ -113,7 +113,7 @@ const tiposDeComida = {
     {
       title: "Arroz blanco",
       calorias: 354,
-      aptoDiabeticos: true,
+      aptoDiabeticos: false,
       aptoCeliacos: true,
       vegano: true,
     },
@@ -383,14 +383,42 @@ class Actividades extends Component {
   getComidas = (key, calorias) => {
     const { state } = this.props.location;
     let isCeliaco = state.sendData.celiaco;
-    let isVegan = !state.sendData.diabetico;
-    let isDiabet = state.sendData.celiaco;
+    let isVegan = !state.sendData.consumisCarne;
+    let isDiabet = state.sendData.diabetico;
     var tipoComida = tiposDeComida[key];
     for (let index = 0; index < tipoComida.length; index++) {
       tipoComida[index].consumo = (calorias * 100) / tipoComida[index].calorias;
     }
 
-    return tipoComida;
+    if (!isCeliaco && !isDiabet && !isVegan) return tipoComida;
+    if (isCeliaco & isDiabet && isVegan)
+      return tipoComida.filter((el) => {
+        return el.aptoCeliacos && el.vegano && el.aptoDiabeticos;
+      });
+    if (isCeliaco && isVegan)
+      return tipoComida.filter((el) => {
+        return el.aptoCeliacos && el.vegano;
+      });
+    if (isDiabet && isVegan)
+      return tipoComida.filter((el) => {
+        return el.vegano && el.aptoDiabeticos;
+      });
+    if (isDiabet && isCeliaco)
+      return tipoComida.filter((el) => {
+        return el.aptoCeliacos && el.aptoDiabeticos;
+      });
+    if (isDiabet)
+      return tipoComida.filter((el) => {
+        return el.aptoDiabeticos;
+      });
+    if (isVegan)
+      return tipoComida.filter((el) => {
+        return el.vegano;
+      });
+    if (isCeliaco)
+      return tipoComida.filter((el) => {
+        return el.aptoCeliacos;
+      });
   };
 
   render() {

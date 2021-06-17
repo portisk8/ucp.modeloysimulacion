@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Esteban&family=Montserrat:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+
 .App {
   text-align: center;
 }
@@ -38,21 +41,28 @@
 }
 
 .body{
-  color:white;
   text-align: center;
   background-color: rgb(10, 6, 6);
-  text-align: center;
-}
-
-.h1 {
-  color: white;
 }
 
 .activitiesButtons {
   display: block;
 }
 
-
 .ant-checkbox-wrapper {
   color: white;
+}
+
+.titulo{
+  font-family: 'monserrat';
+}
+
+.dietips{
+  font-family: 'Quicksand';
+}
+
+.subtitulo{
+  font-family: 'esteban';
+  font-size: large;
+  padding: 2%;
 }

@@ -6,17 +6,17 @@ import axios from "axios";
 class FormularioPage extends Component {
   onFinish = (values) => {
     console.log("Success:", values);
-    // console.log(almuerzo);
     this.props.history.push("/actividades");
-    // let body = {
-    //   peso: values.pesoActual,
-    //   edad: values.edad,
-    //   altura: values.estatura,
-    //   sexo: values.sexo,
-    //   pesoObjetivo: values.pesoObjetivo,
-    //   diasCantidad: values.diasParaPesObjetivo,
-    // };
     let body = {
+      peso: values.pesoActual,
+      edad: values.edad,
+      altura: values.estatura,
+      sexo: values.sexo,
+      pesoObjetivo: values.pesoObjetivo,
+      diasCantidad: values.diasParaPesObjetivo,
+     };
+      /*
+      let body = {
       altura: 100,
       diasCantidad: 30,
       edad: 32,
@@ -24,6 +24,8 @@ class FormularioPage extends Component {
       pesoObjetivo: 70,
       sexo: "M",
     };
+
+    */
 
     console.log(body);
     axios.post(`http://localhost:3600/api/simula/simular`, body).then((res) => {
@@ -42,9 +44,10 @@ class FormularioPage extends Component {
 
   render() {
     return (
-      <div className="body" style={{ marginTop:"1%" }} >
-        <div style={{ textAlign: "center" }}>
-          <h1 style={{ color: "white" }}>Ingrese los siguientes datos:</h1>
+      <div className="body">
+        <div className="titulo" style={{ textAlign: "center"}}>
+          <h1 style={{ color: "white", fontSize:"xxx-large" }}>Calcular plan nutricional</h1>
+          <h1 style={{ color: "white", marginBottom: "2%" }}>Para un cálculo preciso, necesitamos un poco de información básica</h1>
         </div>
         <Form
           name="basic"
@@ -57,14 +60,13 @@ class FormularioPage extends Component {
         >
           <Row justify="center">
             <Col span={6}>
-              <div>¿Cual es su Sexo?</div>
+              <div className="subtitulo">¿Cual es su Sexo?</div>
               <Form.Item
                 name="sexo"
                 rules={[{ required: true, message: "Campo obligatorio!" }]}
-                // style={{ size: 24 }}
               >
                 <Radio.Group buttonStyle="solid">
-                  <Radio.Button value="M" style={{ height: 50 }}>
+                  <Radio.Button value="M" style={{ height: 50}}>
                     <img
                       src={
                         "https://assets.yazio.com/frontend/images/icons.svg#icon-male"
@@ -85,31 +87,31 @@ class FormularioPage extends Component {
                 </Radio.Group>
               </Form.Item>
 
-              <div>¿Cual es su Peso actual?</div>
+              <div className="subtitulo">¿Cual es su Peso actual?</div>
               <Form.Item name="pesoActual" rules={[{ required: true, message: "Campo obligatorio!" }]}>
-                <InputNumber min={1} max={100} />
+                <InputNumber min={30} max={200} />
               </Form.Item>
 
-              <div>¿Cual es su Estatura?</div>
+              <div className="subtitulo" >¿Cual es su Estatura?</div>
               <Form.Item name="estatura" rules={[{ required: true, message: "Campo obligatorio!" }]}>
-                <InputNumber min={1} max={100} />
+                <InputNumber min={100} max={250} />
               </Form.Item>
             </Col>
             <Col span={6}>
 
-              <div>¿Cual es su Edad?</div>
+              <div className="subtitulo" >¿Cual es su Edad?</div>
               <Form.Item name="edad" rules={[{ required: true, message: "Campo obligatorio!" }]}>
-                <InputNumber min={1} max={100} />
+                <InputNumber min={15} max={100} />
               </Form.Item>
 
-              <div>¿Cual es su Peso Objetivo?</div>
+              <div className="subtitulo" >¿Cual es su Peso Objetivo?</div>
               <Form.Item name="pesoObjetivo" rules={[{ required: true, message: "Campo obligatorio!" }]}>
-                <InputNumber min={1} max={100} />
+                <InputNumber min={50} max={200}></InputNumber>
               </Form.Item>
 
-              <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
+              <div className="subtitulo" >¿En cuantos dias pretende conseguir su peso objetivo?</div>
               <Form.Item name="diasParaPesObjetivo" rules={[{ required: true, message: "Campo obligatorio!" }]}>
-                <InputNumber min={1} max={100} />
+                <InputNumber min={10} max={300} />
               </Form.Item>
             </Col>
           </Row>
@@ -117,20 +119,20 @@ class FormularioPage extends Component {
           <Row>
           <Col span={24} style={{marginTop: "1%", marginBottom:"1%", justifyContent: 'space-between'}}>
               
-                <Row justify="center" style={{marginTop:"1%"}}>
+                <Row justify="center">
                   <div style={{padding: 20}}>
-                  <h1 style={{ color: "white" }}>Indique si padece de alguna de las siguientes enfermedades</h1>
+                  <h1 className="titulo" style={{ color: "white", fontSize:"xx-large" }}>Indique si padece de alguna de las siguientes enfermedades</h1>
                   </div>
                 </Row>
 
                 <Row justify="center">
-                  <Col style={{ textAlign: "center"}}>
+                  <Col style={{ textAlign: "center", fontSize:"xx-large"}}>
                     <Row>
-                      <Col span={14}>
-                        <Checkbox value= "Diabetes"><h1 style={{ color:"white" }}>Diabetes</h1></Checkbox>
+                      <Col span={12}>
+                        <Checkbox value= "Diabetes"><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Diabetes</h1></Checkbox>
                       </Col>
                       <Col span={8}>
-                        <Checkbox value= "Celiaquia"><h1 style={{ color:"white" }}>Celiaquia</h1></Checkbox>
+                        <Checkbox value= "Celiaquia"><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Celiaquia</h1></Checkbox>
                       </Col>
                     </Row>
                   </Col>
@@ -138,12 +140,12 @@ class FormularioPage extends Component {
 
 
                 <Row justify="center" style={{marginTop:"2%"}}>
-                  <h1 style={{ color: "white" }}>¿Cuales son tus habitos alimenticios?</h1>
+                  <h1 className="titulo" style={{ color: "white", fontSize:"xx-large"}}>¿Cuales son tus habitos alimenticios?</h1>
                 </Row>
 
                 <Row justify="center" style={{marginTop:"1%"}}>
                     <Col span={4} style={{padding: "1%"}}>
-                      <div>Numero de Comidas Diarias</div>
+                      <div className="subtitulo" >Numero de Comidas Diarias</div>
                       <Form.Item
                         hasFeedback
                         rules={[{ required: true, message: "Campo obligatorio!" }]}
@@ -156,7 +158,7 @@ class FormularioPage extends Component {
                       </Form.Item>
                     </Col>
                     <Col span={4} style={{padding: "1%"}}>
-                      <div>¿Consumis Carne?</div>
+                      <div className="subtitulo">¿Consumis Carne?</div>
                       <Form.Item
                         hasFeedback
                         rules={[{ required: true, message: "Campo obligatorio!" }]}
@@ -170,7 +172,7 @@ class FormularioPage extends Component {
 
                 </Row>
                 
-                <Button id="calcular" shape="round" style={{height: "auto", width: "auto", fontSize: 30}} type="primary" htmlType="submit">Calcular</Button>
+                <Button id="calcular" shape="round" style={{height: "auto", width: "auto", fontSize: 30, color:"white", backgroundColor: "#DE99B4"}} type="primary" htmlType="submit">Calcular</Button>
                 
           </Col>
           </Row>

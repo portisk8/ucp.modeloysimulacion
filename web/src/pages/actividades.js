@@ -128,7 +128,7 @@ class Actividades extends Component {
     console.log(this.props);
     return (
       <div className="body" style={{ textAlign: "center", padding: 20 }}>
-        <h1 style={{ color: "white", fontSize: 50 }}>Selecciona tu rutina</h1>
+        <h1 className="titulo" style={{ color: "white", fontSize: 50 }}>Selecciona tu rutina</h1>
         <Row justify="center" gutter={16}>
           {state &&
             state.result &&
@@ -155,7 +155,7 @@ class Actividades extends Component {
                       }
                       description={
                         <div>
-                          <div>
+                          <div className="subtitulo">
                             Con este nivel de actividad fisica deberias de
                             consumir {item.consumoCaloriasDiaria.toFixed(2)}{" "}
                             kcal diariamente, para llegar a tu peso objetivo en{" "}
@@ -185,12 +185,12 @@ class Actividades extends Component {
         <div ref={this.myRef} style={{ color: "white" }}>
           {itemSelected && (
             <div>
-              <h1 style={{ color: "white", fontSize: 50 }}>
+              <h1 className="titulo" style={{ color: "white", fontSize: 50 }}>
                 Para el nivel: {itemSelected.actividadDescripcion}
               </h1>
               <Row justify="center">
                 <Col span={16}>
-                  <div style={{ color: "white", fontSize: 20 }}>
+                  <div className="subtitulo" style={{ color: "white", fontSize: 20 }}>
                     Deberás consumir{" "}
                     {itemSelected.consumoCaloriasDiaria.toFixed(2)} kcal.
                     diarias para poder{" "}
@@ -214,11 +214,11 @@ class Actividades extends Component {
                 {this.getDataSource().map((item) => {
                   return (
                     <Col span={4} style={{ border: "1px solid white" }}>
-                      <div> {item.titulo} </div>
+                      <div className="subtitulo" > {item.titulo} </div>
                       <hr style={{ border: "1px solid white", width: "70%" }} />
-                      <div> Consumo: {item.valor.toFixed(2)} kcal. </div>
+                      <div className="subtitulo"> Consumo: {item.valor.toFixed(2)} kcal. </div>
                       <hr style={{ border: "1px solid white", width: "70%" }} />
-                      <div>
+                      <div className="subtitulo">
                         {" "}
                         {this.getComidas(item.key, item.valor).map((comida) => {
                           return (
@@ -241,7 +241,7 @@ class Actividades extends Component {
             size="large"
             type={"primary"}
             onClick={() => this.props.history.push("/formulario")}
-            style={{ margin: 10 }}
+            style={{ margin: 10, backgroundColor:"#DE99B4", color: "white" }}
           >
             {" "}
             Volver a calcular
@@ -250,7 +250,7 @@ class Actividades extends Component {
             size="large"
             type={"primary"}
             onClick={() => this.props.history.push("/")}
-            style={{ margin: 10 }}
+            style={{ margin: 10, backgroundColor:"#DE99B4", color: "white" }}
           >
             {" "}
             Volver al Home

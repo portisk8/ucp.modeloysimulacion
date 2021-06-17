@@ -1,74 +1,7 @@
-import {
-  Row,
-  Col,
-  Form,
-  Input,
-  Button,
-  Select,
-  InputNumber,
-  Checkbox,
-  Image,
-  Radio,
-} from "antd";
+import { Row,Col,Form,Input,Button,Select,InputNumber,Checkbox,Radio } from "antd";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-
-const plainOptions = ["Diabetes", "Sobrepeso"];
-const plainOptions2 = ["Celiaquia", "Aterosclerosis"];
-const plainOptions3 = ["Anorexia", "Bulimia"];
-const activies = document.getElementById("activitiesButtons");
-const results = document.getElementById("Results");
-
-
-var desMMerienda =
-  '{ "desayuno" : [' +
-  '{ "alimento":"Pan integral" , "Calorias":"176,8" },' +
-  '{ "alimento":"Queso fresco" , "Calorias":"49,5" },' +
-  '{ "alimento":"Tomate" , "Calorias":"43,9" } ]}';
-
-var almuerzo =
-  '{ "almuerzo" : [' +
-  '{ "alimento":"Albóndigas" , "Calorias":"202" },' +
-  '{ "alimento":"Arroz frito" , "Calorias":"186" },' +
-  '{ "alimento":"Arroz integral" , "Calorias":"362" } ]}';
-
-var cena =
-  '{ "cena" : [' +
-  '{ "alimento":"Albóndigas" , "Calorias":"202" },' +
-  '{ "alimento":"Arroz frito" , "Calorias":"186" },' +
-  '{ "alimento":"Arroz integral" , "Calorias":"362" } ]}';
-
-desMMerienda = JSON.parse(desMMerienda);
-almuerzo = JSON.parse(almuerzo);
-cena = JSON.parse(cena);
-
-console.log(almuerzo);
-
-function calcular(cal, numComidas) {
-  if ((numComidas = 3)) {
-    var d = cal * 0.25;
-    var a = cal * 0.45;
-    var c = cal * 0.3;
-    var calxcomida = { d, a, c };
-    return calxcomida;
-  } else if ((numComidas = 4)) {
-    var d = cal * 0.2;
-    var a = cal * 0.4;
-    var m = cal * 0.1;
-    var c = cal * 0.3;
-    calxcomida = { d, a, m, c };
-    return calxcomida;
-  } else {
-    var d = cal * 0.2;
-    var mm = cal * 0.1;
-    var a = cal * 0.3;
-    var m = cal * 0.1;
-    var c = cal * 0.3;
-    var calxcomida = { d, mm, a, m, c };
-    return calxcomida;
-  }
-}
 
 class FormularioPage extends Component {
   onFinish = (values) => {
@@ -109,7 +42,7 @@ class FormularioPage extends Component {
 
   render() {
     return (
-      <div className="body">
+      <div className="body" style={{ marginTop:"1%" }} >
         <div style={{ textAlign: "center" }}>
           <h1 style={{ color: "white" }}>Ingrese los siguientes datos:</h1>
         </div>
@@ -130,7 +63,7 @@ class FormularioPage extends Component {
                 rules={[{ required: true, message: "Campo obligatorio!" }]}
                 // style={{ size: 24 }}
               >
-                <Radio.Group defaultValue="M" buttonStyle="solid">
+                <Radio.Group buttonStyle="solid">
                   <Radio.Button value="M" style={{ height: 50 }}>
                     <img
                       src={
@@ -153,41 +86,33 @@ class FormularioPage extends Component {
               </Form.Item>
 
               <div>¿Cual es su Peso actual?</div>
-              <Form.Item name="pesoActual" noStyle>
+              <Form.Item name="pesoActual" rules={[{ required: true, message: "Campo obligatorio!" }]}>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>¿Cual es su Estatura?</div>
-              <Form.Item name="estatura" noStyle>
+              <Form.Item name="estatura" rules={[{ required: true, message: "Campo obligatorio!" }]}>
                 <InputNumber min={1} max={100} />
               </Form.Item>
             </Col>
             <Col span={6}>
 
               <div>¿Cual es su Edad?</div>
-              <Form.Item name="edad" noStyle>
+              <Form.Item name="edad" rules={[{ required: true, message: "Campo obligatorio!" }]}>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>¿Cual es su Peso Objetivo?</div>
-              <Form.Item name="pesoObjetivo" noStyle>
+              <Form.Item name="pesoObjetivo" rules={[{ required: true, message: "Campo obligatorio!" }]}>
                 <InputNumber min={1} max={100} />
               </Form.Item>
 
               <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
-              <Form.Item name="diasParaPesObjetivo" noStyle>
+              <Form.Item name="diasParaPesObjetivo" rules={[{ required: true, message: "Campo obligatorio!" }]}>
                 <InputNumber min={1} max={100} />
               </Form.Item>
             </Col>
           </Row>
-
-          {/* Enfermedades*/}
-          <div style={{ padding: 20 }}>
-            <br></br>
-            <h1 style={{ color: "white" }}>
-              Indique si padece de alguna de las siguientes enfermedades
-            </h1>
-          </div>
 
           <Row>
           <Col span={24} style={{marginTop: "1%", marginBottom:"1%", justifyContent: 'space-between'}}>
@@ -201,17 +126,11 @@ class FormularioPage extends Component {
                 <Row justify="center">
                   <Col style={{ textAlign: "center"}}>
                     <Row>
-                      <Col span={12}>
+                      <Col span={14}>
                         <Checkbox value= "Diabetes"><h1 style={{ color:"white" }}>Diabetes</h1></Checkbox>
                       </Col>
-                      <Col>
-                        <Checkbox value= "Sobrepeso"><h1 style={{ color:"white" }}>Sobrepeso</h1></Checkbox>
-                      </Col>
-                      <Col span={12}>
+                      <Col span={8}>
                         <Checkbox value= "Celiaquia"><h1 style={{ color:"white" }}>Celiaquia</h1></Checkbox>
-                      </Col>
-                      <Col>
-                        <Checkbox value= "Bulimia"><h1 style={{ color:"white" }}>Bulimia</h1></Checkbox>
                       </Col>
                     </Row>
                   </Col>
@@ -253,11 +172,10 @@ class FormularioPage extends Component {
                 
                 <Button id="calcular" shape="round" style={{height: "auto", width: "auto", fontSize: 30}} type="primary" htmlType="submit">Calcular</Button>
                 
-              
           </Col>
           </Row>
           </Form>
-          </div>
+        </div>
     );
   }
 }

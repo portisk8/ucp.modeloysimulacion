@@ -8,6 +8,7 @@ import {
   InputNumber,
   Checkbox,
   Image,
+  Radio,
 } from "antd";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
@@ -137,15 +138,34 @@ class FormularioPage extends Component {
             <Col span={6}>
               <div>¿Cual es su Sexo?</div>
               <Form.Item
-                hasFeedback
                 name="sexo"
                 rules={[{ required: true, message: "Campo obligatorio!" }]}
-                style={{ size: 24 }}
+                // style={{ size: 24 }}
               >
-                <Select allowClear>
+                <Radio.Group defaultValue="M" buttonStyle="solid">
+                  <Radio.Button value="M" style={{ height: 50 }}>
+                    <img
+                      src={
+                        "https://assets.yazio.com/frontend/images/icons.svg#icon-male"
+                      }
+                      style={{ height: 50, width: 50 }}
+                    />
+                    MASCULINO
+                  </Radio.Button>
+                  <Radio.Button value="F" style={{ height: 50 }}>
+                    <img
+                      src={
+                        "https://assets.yazio.com/frontend/images/icons.svg#icon-female"
+                      }
+                      style={{ height: 50, width: 50 }}
+                    />
+                    FEMENINO
+                  </Radio.Button>
+                </Radio.Group>
+                {/* <Select allowClear>
                   <Select.Option value="M">Masculino</Select.Option>
                   <Select.Option value="F">Femenino</Select.Option>
-                </Select>
+                </Select> */}
               </Form.Item>
 
               <div>¿Cual es su Peso actual?</div>

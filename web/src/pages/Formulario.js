@@ -162,10 +162,6 @@ class FormularioPage extends Component {
                     FEMENINO
                   </Radio.Button>
                 </Radio.Group>
-                {/* <Select allowClear>
-                  <Select.Option value="M">Masculino</Select.Option>
-                  <Select.Option value="F">Femenino</Select.Option>
-                </Select> */}
               </Form.Item>
 
               <div>¿Cual es su Peso actual?</div>

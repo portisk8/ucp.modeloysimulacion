@@ -86,22 +86,22 @@ class FormularioPage extends Component {
     console.log("Success:", values);
     // console.log(almuerzo);
     this.props.history.push("/actividades");
-    let body = {
-      peso: values.pesoActual,
-      edad: values.edad,
-      altura: values.estatura,
-      sexo: values.sexo,
-      pesoObjetivo: values.pesoObjetivo,
-      diasCantidad: values.diasParaPesObjetivo,
-    };
     // let body = {
-    //   altura: 100,
-    //   diasCantidad: 30,
-    //   edad: 32,
-    //   peso: 75,
-    //   pesoObjetivo: 70,
-    //   sexo: "M",
+    //   peso: values.pesoActual,
+    //   edad: values.edad,
+    //   altura: values.estatura,
+    //   sexo: values.sexo,
+    //   pesoObjetivo: values.pesoObjetivo,
+    //   diasCantidad: values.diasParaPesObjetivo,
     // };
+    let body = {
+      altura: 100,
+      diasCantidad: 30,
+      edad: 32,
+      peso: 75,
+      pesoObjetivo: 70,
+      sexo: "M",
+    };
 
     console.log(body);
     axios.post(`http://localhost:3600/api/simula/simular`, body).then((res) => {
@@ -109,7 +109,7 @@ class FormularioPage extends Component {
       console.log(res.data);
       this.props.history.push({
         pathname: "/actividades",
-        state: res.data, // your data array of objects
+        state: { result: res.data.result, sendData: body }, // your data array of objects
       });
     });
   };

@@ -6,63 +6,62 @@ const { Meta } = Card;
 
 const tiposDeComida = {
   1: [
-    { title: "Copos de maíz", calorias: 350 },
-    { title: "Pan de trigo blanco", calorias: 255 },
-    { title: "Banana", calorias: 90 },
-    { title: "Manzana", calorias: 52 },
-    { title: "Frutilla", calorias: 36 },
-    { title: "Huevo frito", calorias: 162 },
-    { title: "Avena", calorias: 367 },
-    { title: "Yogur Netural", calorias: 62 },
+    { title: "Copos de maíz", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true },
+    { title: "Pan de trigo blanco", calorias: 255, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
+    { title: "Banana", calorias: 90, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    { title: "Manzana", calorias: 52, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Frutilla", calorias: 36, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Huevo frito", calorias: 162, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
+    { title: "Avena", calorias: 367, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
+    { title: "Yogur Natural", calorias: 62, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
   ],
 
   2: [
-    { title: "Banana", calorias: 90 },
-    { title: "Manzana", calorias: 52 },
-    { title: "Almendras", calorias: 620 },
-    { title: "Mani", calorias: 560 },
-    { title: "Nueces", calorias: 660 },
-    { title: "Medialuna", calorias: 456 },
+    { title: "Banana", calorias: 90, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    { title: "Manzana", calorias: 52, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Almendras", calorias: 620, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
+    { title: "Mani", calorias: 560, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Nueces", calorias: 660, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Medialuna", calorias: 456, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
   ],
 
   3: [
-    { title: "Arroz blanco", calorias: 354 },
-    { title: "Bife de cerdo", calorias: 330 },
-    { title: "Pollo", calorias: 134 },
-    { title: "Polenta", calorias: 358 },
-    { title: "Pasta al Huevo", calorias: 368 },
-    { title: "Atun Enlatado", calorias: 203 },
-    { title: "Hamburguesa", calorias: 140 },
-    { title: "Milanesa de ternera", calorias: 194 },
-    { title: "Espinaca", calorias: 32 },
-    { title: "Tomate", calorias: 22 },
-    { title: "Zanahoria", calorias: 42 },
-    { title: "Calabacin", calorias: 31 },
-    { title: "Lentejas", calorias: 336 },
+    { title: "Arroz blanco", calorias: 354, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Bife de cerdo", calorias: 330, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
+    { title: "Pollo", calorias: 134, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
+    { title: "Polenta", calorias: 358, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Pasta al Huevo", calorias: 368, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
+    { title: "Atun Enlatado", calorias: 203, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
+    { title: "Hamburguesa", calorias: 140, aptoDiabeticos: true, aptoCeliacos: false, vegano: false  },
+    { title: "Milanesa de ternera", calorias: 194, aptoDiabeticos: true, aptoCeliacos: false, vegano: false  },
+    { title: "Espinaca", calorias: 32, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Tomate", calorias: 22, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Zanahoria", calorias: 42, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Calabacin", calorias: 31, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Lentejas", calorias: 336, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
   ],
 
   4: [
-    { title: "Copos de maíz", calorias: 350 },
-    { title: "Leche", calorias: 68 },
-    { title: "Pastel de Manzana", calorias: 311 },
-    { title: "Medialuna", calorias: 456 },
-    { title: "Galletas saladas", calorias: 464 },
-    { title: "Magdalenas", calorias: 469 },
-    { title: "Jugo de Naranja", calorias: 42 },
+    { title: "Copos de maíz", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    { title: "Leche", calorias: 68, aptoDiabeticos: false, aptoCeliacos: true, vegano: false  },
+    { title: "Pastel de Manzana", calorias: 311, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    { title: "Medialuna", calorias: 456, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
+    { title: "Galletas saladas", calorias: 464, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
+    { title: "Magdalenas", calorias: 469, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
+    { title: "Jugo de Naranja", calorias: 42, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
   ],
 
   5: [
-    { title: "Arroz blanco", calorias: 354 },
-    { title: "Arroz integral", calorias: 350 },
-    { title: "Polenta", calorias: 358 },
-    { title: "Garbanzos", calorias: 361 },
-    { title: "Judías", calorias: 343 },
-    { title: "Lentejas", calorias: 336 },
-    { title: "Polenta", calorias: 358 },
-    { title: "Espinaca", calorias: 32 },
-    { title: "Tomate", calorias: 22 },
-    { title: "Zanahoria", calorias: 42 },
-    { title: "Berenjena", calorias: 29 },
+    { title: "Arroz blanco", calorias: 354, aptoDiabeticos: false, aptoCeliacos: true, vegano: true },
+    { title: "Arroz integral", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    { title: "Polenta", calorias: 358, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Garbanzos", calorias: 361, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Judías", calorias: 343, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Lentejas", calorias: 336, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Espinaca", calorias: 32, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Tomate", calorias: 22, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Zanahoria", calorias: 42, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    { title: "Berenjena", calorias: 29, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
   ],
 };
 
@@ -110,7 +109,7 @@ class Actividades extends Component {
     const { state } = this.props.location;
     const { itemSelected } = this.state;
     //TODO: obtener la cantidad de comidas del formulario
-    let dataSource = calcular(itemSelected.consumoCaloriasDiaria.toFixed(2), 5);
+    let dataSource = calcular(itemSelected.consumoCaloriasDiaria.toFixed(2), state.sendData.numComidas);
     return dataSource;
   };
 

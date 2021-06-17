@@ -14,6 +14,10 @@ class FormularioPage extends Component {
       sexo: values.sexo,
       pesoObjetivo: values.pesoObjetivo,
       diasCantidad: values.diasParaPesObjetivo,
+      diabetico: values.diabetico,
+      celiaco: values.celiaco,
+      consumisCarne: values.consumisCarne,
+      cantidadComidas: values.comidasDiarias
      };
       /*
       let body = {
@@ -129,10 +133,14 @@ class FormularioPage extends Component {
                   <Col style={{ textAlign: "center", fontSize:"xx-large"}}>
                     <Row>
                       <Col span={12}>
-                        <Checkbox value= "Diabetes"><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Diabetes</h1></Checkbox>
+                      <Form.Item name = "diabetes">
+                        <Checkbox value= {"Y"}><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Diabetes</h1></Checkbox>
+                      </Form.Item>
                       </Col>
                       <Col span={8}>
-                        <Checkbox value= "Celiaquia"><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Celiaquia</h1></Checkbox>
+                        <Form.Item name = "celiaco">
+                          <Checkbox value= {"Y"}><h1 className="subtitulo" style={{ color:"white", fontSize:"xx-large" }}>Celiaquia</h1></Checkbox>
+                        </Form.Item>
                       </Col>
                     </Row>
                   </Col>
@@ -147,6 +155,7 @@ class FormularioPage extends Component {
                     <Col span={4} style={{padding: "1%"}}>
                       <div className="subtitulo" >Numero de Comidas Diarias</div>
                       <Form.Item
+                        name = "comidasDiarias"
                         hasFeedback
                         rules={[{ required: true, message: "Campo obligatorio!" }]}
                       >
@@ -160,6 +169,7 @@ class FormularioPage extends Component {
                     <Col span={4} style={{padding: "1%"}}>
                       <div className="subtitulo">¿Consumis Carne?</div>
                       <Form.Item
+                      name = "consumisCarne"
                         hasFeedback
                         rules={[{ required: true, message: "Campo obligatorio!" }]}
                       >

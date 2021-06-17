@@ -6,62 +6,326 @@ const { Meta } = Card;
 
 const tiposDeComida = {
   1: [
-    { title: "Copos de maíz", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true },
-    { title: "Pan de trigo blanco", calorias: 255, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
-    { title: "Banana", calorias: 90, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
-    { title: "Manzana", calorias: 52, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Frutilla", calorias: 36, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Huevo frito", calorias: 162, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
-    { title: "Avena", calorias: 367, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
-    { title: "Yogur Natural", calorias: 62, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    {
+      title: "Copos de maíz",
+      calorias: 350,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Pan de trigo blanco",
+      calorias: 255,
+      aptoDiabeticos: false,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Banana",
+      calorias: 90,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Manzana",
+      calorias: 52,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Frutilla",
+      calorias: 36,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Huevo frito",
+      calorias: 162,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Avena",
+      calorias: 367,
+      aptoDiabeticos: true,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Yogur Natural",
+      calorias: 62,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
   ],
 
   2: [
-    { title: "Banana", calorias: 90, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
-    { title: "Manzana", calorias: 52, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Almendras", calorias: 620, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
-    { title: "Mani", calorias: 560, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Nueces", calorias: 660, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Medialuna", calorias: 456, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
+    {
+      title: "Banana",
+      calorias: 90,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Manzana",
+      calorias: 52,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Almendras",
+      calorias: 620,
+      aptoDiabeticos: true,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Mani",
+      calorias: 560,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Nueces",
+      calorias: 660,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Medialuna",
+      calorias: 456,
+      aptoDiabeticos: false,
+      aptoCeliacos: false,
+      vegano: true,
+    },
   ],
 
   3: [
-    { title: "Arroz blanco", calorias: 354, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Bife de cerdo", calorias: 330, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
-    { title: "Pollo", calorias: 134, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
-    { title: "Polenta", calorias: 358, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Pasta al Huevo", calorias: 368, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
-    { title: "Atun Enlatado", calorias: 203, aptoDiabeticos: true, aptoCeliacos: true, vegano: false  },
-    { title: "Hamburguesa", calorias: 140, aptoDiabeticos: true, aptoCeliacos: false, vegano: false  },
-    { title: "Milanesa de ternera", calorias: 194, aptoDiabeticos: true, aptoCeliacos: false, vegano: false  },
-    { title: "Espinaca", calorias: 32, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Tomate", calorias: 22, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Zanahoria", calorias: 42, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Calabacin", calorias: 31, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Lentejas", calorias: 336, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    {
+      title: "Arroz blanco",
+      calorias: 354,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Bife de cerdo",
+      calorias: 330,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Pollo",
+      calorias: 134,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Polenta",
+      calorias: 358,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Pasta al Huevo",
+      calorias: 368,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Atun Enlatado",
+      calorias: 203,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Hamburguesa",
+      calorias: 140,
+      aptoDiabeticos: true,
+      aptoCeliacos: false,
+      vegano: false,
+    },
+    {
+      title: "Milanesa de ternera",
+      calorias: 194,
+      aptoDiabeticos: true,
+      aptoCeliacos: false,
+      vegano: false,
+    },
+    {
+      title: "Espinaca",
+      calorias: 32,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Tomate",
+      calorias: 22,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Zanahoria",
+      calorias: 42,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Calabacin",
+      calorias: 31,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Lentejas",
+      calorias: 336,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
   ],
 
   4: [
-    { title: "Copos de maíz", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
-    { title: "Leche", calorias: 68, aptoDiabeticos: false, aptoCeliacos: true, vegano: false  },
-    { title: "Pastel de Manzana", calorias: 311, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
-    { title: "Medialuna", calorias: 456, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
-    { title: "Galletas saladas", calorias: 464, aptoDiabeticos: true, aptoCeliacos: false, vegano: true  },
-    { title: "Magdalenas", calorias: 469, aptoDiabeticos: false, aptoCeliacos: false, vegano: true  },
-    { title: "Jugo de Naranja", calorias: 42, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
+    {
+      title: "Copos de maíz",
+      calorias: 350,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Leche",
+      calorias: 68,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: false,
+    },
+    {
+      title: "Pastel de Manzana",
+      calorias: 311,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Medialuna",
+      calorias: 456,
+      aptoDiabeticos: false,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Galletas saladas",
+      calorias: 464,
+      aptoDiabeticos: true,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Magdalenas",
+      calorias: 469,
+      aptoDiabeticos: false,
+      aptoCeliacos: false,
+      vegano: true,
+    },
+    {
+      title: "Jugo de Naranja",
+      calorias: 42,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
   ],
 
   5: [
-    { title: "Arroz blanco", calorias: 354, aptoDiabeticos: false, aptoCeliacos: true, vegano: true },
-    { title: "Arroz integral", calorias: 350, aptoDiabeticos: false, aptoCeliacos: true, vegano: true  },
-    { title: "Polenta", calorias: 358, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Garbanzos", calorias: 361, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Judías", calorias: 343, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Lentejas", calorias: 336, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Espinaca", calorias: 32, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Tomate", calorias: 22, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Zanahoria", calorias: 42, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
-    { title: "Berenjena", calorias: 29, aptoDiabeticos: true, aptoCeliacos: true, vegano: true  },
+    {
+      title: "Arroz blanco",
+      calorias: 354,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Arroz integral",
+      calorias: 350,
+      aptoDiabeticos: false,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Polenta",
+      calorias: 358,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Garbanzos",
+      calorias: 361,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Judías",
+      calorias: 343,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Lentejas",
+      calorias: 336,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Espinaca",
+      calorias: 32,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Tomate",
+      calorias: 22,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Zanahoria",
+      calorias: 42,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
+    {
+      title: "Berenjena",
+      calorias: 29,
+      aptoDiabeticos: true,
+      aptoCeliacos: true,
+      vegano: true,
+    },
   ],
 };
 
@@ -109,15 +373,23 @@ class Actividades extends Component {
     const { state } = this.props.location;
     const { itemSelected } = this.state;
     //TODO: obtener la cantidad de comidas del formulario
-    let dataSource = calcular(itemSelected.consumoCaloriasDiaria.toFixed(2), state.sendData.numComidas);
+    let dataSource = calcular(
+      itemSelected.consumoCaloriasDiaria.toFixed(2),
+      parseInt(state.sendData.cantidadComidas)
+    );
     return dataSource;
   };
 
   getComidas = (key, calorias) => {
+    const { state } = this.props.location;
+    let isCeliaco = state.sendData.celiaco;
+    let isVegan = !state.sendData.diabetico;
+    let isDiabet = state.sendData.celiaco;
     var tipoComida = tiposDeComida[key];
     for (let index = 0; index < tipoComida.length; index++) {
       tipoComida[index].consumo = (calorias * 100) / tipoComida[index].calorias;
     }
+
     return tipoComida;
   };
 
@@ -127,7 +399,9 @@ class Actividades extends Component {
     console.log(this.props);
     return (
       <div className="body" style={{ textAlign: "center", padding: 20 }}>
-        <h1 className="titulo" style={{ color: "white", fontSize: 50 }}>Selecciona tu rutina</h1>
+        <h1 className="titulo" style={{ color: "white", fontSize: 50 }}>
+          Selecciona tu rutina
+        </h1>
         <Row justify="center" gutter={16}>
           {state &&
             state.result &&
@@ -189,7 +463,10 @@ class Actividades extends Component {
               </h1>
               <Row justify="center">
                 <Col span={16}>
-                  <div className="subtitulo" style={{ color: "white", fontSize: 20 }}>
+                  <div
+                    className="subtitulo"
+                    style={{ color: "white", fontSize: 20 }}
+                  >
                     Deberás consumir{" "}
                     {itemSelected.consumoCaloriasDiaria.toFixed(2)} kcal.
                     diarias para poder{" "}
@@ -213,17 +490,19 @@ class Actividades extends Component {
                 {this.getDataSource().map((item) => {
                   return (
                     <Col span={4} style={{ border: "1px solid white" }}>
-                      <div className="subtitulo" > {item.titulo} </div>
+                      <div className="subtitulo"> {item.titulo} </div>
                       <hr style={{ border: "1px solid white", width: "70%" }} />
-                      <div className="subtitulo"> Consumo: {item.valor.toFixed(2)} kcal. </div>
+                      <div className="subtitulo">
+                        {" "}
+                        Consumo: {item.valor.toFixed(2)} kcal.{" "}
+                      </div>
                       <hr style={{ border: "1px solid white", width: "70%" }} />
                       <div className="subtitulo">
                         {" "}
                         {this.getComidas(item.key, item.valor).map((comida) => {
                           return (
                             <div>
-                              {comida.title} ({comida.calorias}) ={" "}
-                              {comida.consumo.toFixed(2)} gr.
+                              {comida.title} = {comida.consumo.toFixed(2)} gr.
                             </div>
                           );
                         })}{" "}
@@ -240,7 +519,7 @@ class Actividades extends Component {
             size="large"
             type={"primary"}
             onClick={() => this.props.history.push("/formulario")}
-            style={{ margin: 10, backgroundColor:"#DE99B4", color: "white" }}
+            style={{ margin: 10, backgroundColor: "#DE99B4", color: "white" }}
           >
             {" "}
             Volver a calcular
@@ -249,7 +528,7 @@ class Actividades extends Component {
             size="large"
             type={"primary"}
             onClick={() => this.props.history.push("/")}
-            style={{ margin: 10, backgroundColor:"#DE99B4", color: "white" }}
+            style={{ margin: 10, backgroundColor: "#DE99B4", color: "white" }}
           >
             {" "}
             Volver al Home

@@ -1,14 +1,4 @@
-import {
-  Row,
-  Col,
-  Form,
-  Input,
-  Button,
-  Select,
-  InputNumber,
-  Checkbox,
-  Image,
-} from "antd";
+import { Row,Col,Form,Input,Button,Select,InputNumber,Checkbox,Image, } from "antd";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
@@ -19,18 +9,6 @@ const plainOptions3 = ["Anorexia", "Bulimia"];
 const activies = document.getElementById("activitiesButtons");
 const results = document.getElementById("Results");
 
-const options = [
-  { label: "Diabetes", value: "Diabetes" },
-  { label: "Sobrepeso", value: "Sobrepeso" },
-  { label: "Celiaquia", value: "Celiaquia" },
-  { label: "Aterosclerosis", value: "Aterosclerosis" },
-  { label: "Anorexia", value: "Anorexia" },
-  { label: "Bulimia", value: "Bulimia" },
-];
-
-function onChange(checkedValues) {
-  console.log("checked = ", checkedValues);
-}
 
 var desMMerienda =
   '{ "desayuno" : [' +
@@ -120,152 +98,125 @@ class FormularioPage extends Component {
 
   render() {
     return (
-      <div className="body">
-        <div style={{ textAlign: "center" }}>
-          <h1 style={{ color: "white" }}>Ingrese los siguientes datos:</h1>
-        </div>
-        <Form
-          name="basic"
-          layout={"vertical"}
-          initialValues={{ remember: true }}
-          onFinish={this.onFinish}
-          onFinishFailed={this.onFinishFailed}
-          style={{ textAlign: "center", color: "white" }}
-          size={"large"}
-        >
-          <Row justify="center">
-            <Col span={6}>
-              <div>¿Cual es su Sexo?</div>
-              <Form.Item
-                hasFeedback
-                name="sexo"
-                rules={[{ required: true, message: "Campo obligatorio!" }]}
-                style={{ size: 24 }}
-              >
-                <Select allowClear>
-                  <Select.Option value="M">Masculino</Select.Option>
-                  <Select.Option value="F">Femenino</Select.Option>
-                </Select>
-              </Form.Item>
-
-              <div>¿Cual es su Peso actual?</div>
-              <Form.Item name="pesoActual" noStyle>
-                <InputNumber min={1} max={100} />
-              </Form.Item>
-
-              <div>¿Cual es su Estatura?</div>
-              <Form.Item name="estatura" noStyle>
-                <InputNumber min={1} max={100} />
-              </Form.Item>
-            </Col>
-            <Col span={6}>
-              {/* <Form.Item
-                label="Username"
-                name="username"
-                rules={[
-                  { required: true, message: "Please input your username!" },
-                ]}
-              >
-                <Input />
-              </Form.Item> */}
-
-              <div>¿Cual es su Edad?</div>
-              <Form.Item name="edad" noStyle>
-                <InputNumber min={1} max={100} />
-              </Form.Item>
-
-              <div>¿Cual es su Peso Objetivo?</div>
-              <Form.Item name="pesoObjetivo" noStyle>
-                <InputNumber min={1} max={100} />
-              </Form.Item>
-
-              <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
-              <Form.Item name="diasParaPesObjetivo" noStyle>
-                <InputNumber min={1} max={100} />
-              </Form.Item>
-              {/* <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                  { required: true, message: "Please input your password!" },
-                ]}
-              >
-                <Input.Password />
-              </Form.Item> */}
-            </Col>
-          </Row>
-
-          {/* Enfermedades*/}
-          <div style={{ padding: 20 }}>
-            <br></br>
-            <h1 style={{ color: "white" }}>
-              Indique si padece de alguna de las siguientes enfermedades
-            </h1>
-          </div>
-
+      <div className = "body">
           <Row>
-            <Col span={24} style={{ textAlign: "center" }}>
-              <Row>
-                <Col span={24} style={{ padding: 20 }}>
-                  <Checkbox.Group options={plainOptions} onChange={onChange} />
-                </Col>
-                <Col span={24} style={{ padding: 20 }}>
-                  <Checkbox.Group options={plainOptions2} onChange={onChange} />
-                </Col>
-                <Col span={24} style={{ padding: 20 }}>
-                  <Checkbox.Group options={plainOptions3} onChange={onChange} />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
+          <Col span={24} style={{marginTop: "1%", marginBottom:"1%", justifyContent: 'space-between'}}>
+              <h1 style={{color: "white" }}>Ingrese los siguientes datos:</h1>
+              <Form
+              name="basic"
+              layout={"vertical"}
+              initialValues={{ remember: true }}
+              onFinish={this.onFinish}
+              onFinishFailed={this.onFinishFailed}
+              style={{ textAlign: "center", color: "white" }}
+              size={"large"}
+              >
+                <Row justify="center" style={{marginTop: "3%", marginLeft: "5%"}}>
+                  <Col style={{textAlign: "center"}} span={3}>
+                    <div>¿Cual es su Sexo?</div>
+                    <Form.Item
+                      hasFeedback
+                      name="sexo"
+                      rules={[{ required: true, message: "Campo obligatorio!" }]}
+                      style={{margin: "5%"}}
+                    >
+                      <Select allowClear>
+                        <Select.Option value="M">Masculino</Select.Option>
+                        <Select.Option value="F">Femenino</Select.Option>
+                      </Select>
+                    </Form.Item>
+      
+                    <div>¿Cual es su Peso actual?</div>
+                    <Form.Item name="pesoActual" noStyle>
+                      <InputNumber min={20} max={300} style={{margin: "5%"}}/>
+                    </Form.Item>
+      
+                    <div>¿Cual es su Estatura?</div>
+                    <Form.Item name="estatura" noStyle>
+                      <InputNumber min={1} max={250} style={{margin: "5%"}}/>
+                    </Form.Item>
+                  </Col>
 
-          {/*Habitos Alimentcios */}
-          <div>
-            <h1 style={{ color: "white" }}>
-              ¿Cuales son tus habitos alimenticios?
-            </h1>
-          </div>
-          <Row justify="center" gutter={16}>
-            <Col span={4}>
-              <div>Numero de Comidas Diarias</div>
-              <Form.Item
-                hasFeedback
-                rules={[{ required: true, message: "Campo obligatorio!" }]}
-              >
-                <Select allowClear>
-                  <Select.Option value="3">3</Select.Option>
-                  <Select.Option value="4">4</Select.Option>
-                  <Select.Option value="5">5</Select.Option>
-                </Select>
-              </Form.Item>
-            </Col>
-            <Col span={4}>
-              <div>¿Consumis Carne?</div>
-              <Form.Item
-                hasFeedback
-                rules={[{ required: true, message: "Campo obligatorio!" }]}
-              >
-                <Select allowClear>
-                  <Select.Option value="Y">Si</Select.Option>
-                  <Select.Option value="N">No</Select.Option>
-                </Select>
-              </Form.Item>
-            </Col>
-          </Row>
-          <Form.Item>
-            <Button
-              id="calcular"
-              style={{ textAlign: "center" }}
-              type="primary"
-              htmlType="submit"
-            >
-              Calcular
-            </Button>
-          </Form.Item>
-        </Form>
-        <br />
-        <br />
-        <br />
+                  <Col span={6}>
+                    <div>¿Cual es su Edad?</div>
+                    <Form.Item name="edad" noStyle>
+                      <InputNumber min={1} max={100} style={{margin: "3%"}}/>
+                    </Form.Item>
+                    <div>¿Cual es su Peso Objetivo?</div>
+                    <Form.Item name="pesoObjetivo" noStyle>
+                      <InputNumber min={1} max={300} style={{margin: "3%"}}/>
+                    </Form.Item>
+                    <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
+                    <Form.Item name="diasParaPesObjetivo" noStyle>
+                      <InputNumber min={1} max={100} style={{margin: "3%"}}/>
+                    </Form.Item>
+                  </Col>
+                </Row>
+
+                <Row justify="center" style={{marginTop:"1%"}}>
+                  <div style={{padding: 20}}>
+                  <h1 style={{ color: "white" }}>Indique si padece de alguna de las siguientes enfermedades</h1>
+                  </div>
+                </Row>
+
+                <Row justify="center">
+                  <Col style={{ textAlign: "center"}}>
+                    <Row>
+                      <Col span={12}>
+                        <Checkbox value= "Diabetes"><h1 style={{ color:"white" }}>Diabetes</h1></Checkbox>
+                      </Col>
+                      <Col>
+                        <Checkbox value= "Sobrepeso"><h1 style={{ color:"white" }}>Sobrepeso</h1></Checkbox>
+                      </Col>
+                      <Col span={12}>
+                        <Checkbox value= "Celiaquia"><h1 style={{ color:"white" }}>Celiaquia</h1></Checkbox>
+                      </Col>
+                      <Col>
+                        <Checkbox value= "Bulimia"><h1 style={{ color:"white" }}>Bulimia</h1></Checkbox>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+
+
+                <Row justify="center" style={{marginTop:"2%"}}>
+                  <h1 style={{ color: "white" }}>¿Cuales son tus habitos alimenticios?</h1>
+                </Row>
+
+                <Row justify="center" style={{marginTop:"1%"}}>
+                    <Col span={4} style={{padding: "1%"}}>
+                      <div>Numero de Comidas Diarias</div>
+                      <Form.Item
+                        hasFeedback
+                        rules={[{ required: true, message: "Campo obligatorio!" }]}
+                      >
+                        <Select allowClear>
+                          <Select.Option value="3">3</Select.Option>
+                          <Select.Option value="4">4</Select.Option>
+                          <Select.Option value="5">5</Select.Option>
+                        </Select>
+                      </Form.Item>
+                    </Col>
+                    <Col span={4} style={{padding: "1%"}}>
+                      <div>¿Consumis Carne?</div>
+                      <Form.Item
+                        hasFeedback
+                        rules={[{ required: true, message: "Campo obligatorio!" }]}
+                      >
+                        <Select allowClear>
+                          <Select.Option value="Y">Si</Select.Option>
+                          <Select.Option value="N">No</Select.Option>
+                        </Select>
+                      </Form.Item>
+                    </Col>
+
+                </Row>
+
+                <Button id="calcular" shape="round" style={{height: "auto", width: "auto", fontSize: 30}} type="primary" htmlType="submit">Calcular</Button>
+              
+              </Form>
+          </Col>
+        </Row>
       </div>
     );
   }

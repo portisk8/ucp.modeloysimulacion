@@ -9,7 +9,7 @@ class Actividades extends Component {
     console.log(this.props);
     return (
       <div className="body" style={{ textAlign: "center", padding: 20 }}>
-        <Row justify="center">
+        <Row justify="center" gutter={16}>
           {state &&
             state.result &&
             state.result.map((item) => {
@@ -17,11 +17,12 @@ class Actividades extends Component {
                 <Col>
                   <Card
                     hoverable
-                    style={{ width: 240 }}
+                    style={{ width: 387, margin: 10 }}
                     cover={
                       <img
                         alt="example"
-                        src="https://image.shutterstock.com/image-photo/handsome-stylish-young-man-sitting-260nw-792091585.jpg"
+                        src={item.urlImage}
+                        style={{ width: 387, height: 280 }}
                       />
                     }
                   >
@@ -34,6 +35,12 @@ class Actividades extends Component {
                       description={
                         <div>
                           <div>
+                            Con este nivel de actividad fisica deberias de
+                            consumir {item.consumoCaloriasDiaria.toFixed(2)}{" "}
+                            kcal diariamente, para llegar a tu peso objetivo en{" "}
+                            {item.dias} dias.
+                          </div>
+                          {/* <div>
                             consumoCaloriasDiaria: {item.consumoCaloriasDiaria}
                             <br />
                             consumoCaloriasTotal: {item.consumoCaloriasTotal}
@@ -45,7 +52,7 @@ class Actividades extends Component {
                             tmb: {item.tmb}
                             <br />
                             tmbDias: {item.tmbDias}
-                          </div>
+                          </div> */}
                         </div>
                       }
                     />

@@ -28,6 +28,8 @@ router.post("/simular", async (req, res, next) => {
       actividadDescripcion: actividadDiariaTipo[index].description,
       dias: persona.diasCantidad,
       diferenciaPeso: Math.abs(persona.peso - persona.pesoObjetivo),
+      urlImage: actividadDiariaTipo[index].urlImage,
+      actividadTipoId: index,
     });
   }
   res.json({ result });

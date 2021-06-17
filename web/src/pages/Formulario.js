@@ -1,4 +1,15 @@
-import { Row,Col,Form,Input,Button,Select,InputNumber,Checkbox,Image, } from "antd";
+import {
+  Row,
+  Col,
+  Form,
+  Input,
+  Button,
+  Select,
+  InputNumber,
+  Checkbox,
+  Image,
+  Radio,
+} from "antd";
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
@@ -63,7 +74,7 @@ class FormularioPage extends Component {
   onFinish = (values) => {
     console.log("Success:", values);
     // console.log(almuerzo);
-    // this.props.history.push("/actividades");
+    this.props.history.push("/actividades");
     // let body = {
     //   peso: values.pesoActual,
     //   edad: values.edad,
@@ -87,7 +98,7 @@ class FormularioPage extends Component {
       console.log(res.data);
       this.props.history.push({
         pathname: "/actividades",
-        state: res.data, // your data array of objects
+        state: { result: res.data.result, sendData: body }, // your data array of objects
       });
     });
   };
@@ -98,61 +109,89 @@ class FormularioPage extends Component {
 
   render() {
     return (
-      <div className = "body">
+      <div className="body">
+        <div style={{ textAlign: "center" }}>
+          <h1 style={{ color: "white" }}>Ingrese los siguientes datos:</h1>
+        </div>
+        <Form
+          name="basic"
+          layout={"vertical"}
+          initialValues={{ remember: true }}
+          onFinish={this.onFinish}
+          onFinishFailed={this.onFinishFailed}
+          style={{ textAlign: "center", color: "white" }}
+          size={"large"}
+        >
+          <Row justify="center">
+            <Col span={6}>
+              <div>¿Cual es su Sexo?</div>
+              <Form.Item
+                name="sexo"
+                rules={[{ required: true, message: "Campo obligatorio!" }]}
+                // style={{ size: 24 }}
+              >
+                <Radio.Group defaultValue="M" buttonStyle="solid">
+                  <Radio.Button value="M" style={{ height: 50 }}>
+                    <img
+                      src={
+                        "https://assets.yazio.com/frontend/images/icons.svg#icon-male"
+                      }
+                      style={{ height: 50, width: 50 }}
+                    />
+                    MASCULINO
+                  </Radio.Button>
+                  <Radio.Button value="F" style={{ height: 50 }}>
+                    <img
+                      src={
+                        "https://assets.yazio.com/frontend/images/icons.svg#icon-female"
+                      }
+                      style={{ height: 50, width: 50 }}
+                    />
+                    FEMENINO
+                  </Radio.Button>
+                </Radio.Group>
+              </Form.Item>
+
+              <div>¿Cual es su Peso actual?</div>
+              <Form.Item name="pesoActual" noStyle>
+                <InputNumber min={1} max={100} />
+              </Form.Item>
+
+              <div>¿Cual es su Estatura?</div>
+              <Form.Item name="estatura" noStyle>
+                <InputNumber min={1} max={100} />
+              </Form.Item>
+            </Col>
+            <Col span={6}>
+
+              <div>¿Cual es su Edad?</div>
+              <Form.Item name="edad" noStyle>
+                <InputNumber min={1} max={100} />
+              </Form.Item>
+
+              <div>¿Cual es su Peso Objetivo?</div>
+              <Form.Item name="pesoObjetivo" noStyle>
+                <InputNumber min={1} max={100} />
+              </Form.Item>
+
+              <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
+              <Form.Item name="diasParaPesObjetivo" noStyle>
+                <InputNumber min={1} max={100} />
+              </Form.Item>
+            </Col>
+          </Row>
+
+          {/* Enfermedades*/}
+          <div style={{ padding: 20 }}>
+            <br></br>
+            <h1 style={{ color: "white" }}>
+              Indique si padece de alguna de las siguientes enfermedades
+            </h1>
+          </div>
+
           <Row>
           <Col span={24} style={{marginTop: "1%", marginBottom:"1%", justifyContent: 'space-between'}}>
-              <h1 style={{color: "white" }}>Ingrese los siguientes datos:</h1>
-              <Form
-              name="basic"
-              layout={"vertical"}
-              initialValues={{ remember: true }}
-              onFinish={this.onFinish}
-              onFinishFailed={this.onFinishFailed}
-              style={{ textAlign: "center", color: "white" }}
-              size={"large"}
-              >
-                <Row justify="center" style={{marginTop: "3%", marginLeft: "5%"}}>
-                  <Col style={{textAlign: "center"}} span={3}>
-                    <div>¿Cual es su Sexo?</div>
-                    <Form.Item
-                      hasFeedback
-                      name="sexo"
-                      rules={[{ required: true, message: "Campo obligatorio!" }]}
-                      style={{margin: "5%"}}
-                    >
-                      <Select allowClear>
-                        <Select.Option value="M">Masculino</Select.Option>
-                        <Select.Option value="F">Femenino</Select.Option>
-                      </Select>
-                    </Form.Item>
-      
-                    <div>¿Cual es su Peso actual?</div>
-                    <Form.Item name="pesoActual" noStyle>
-                      <InputNumber min={20} max={300} style={{margin: "5%"}}/>
-                    </Form.Item>
-      
-                    <div>¿Cual es su Estatura?</div>
-                    <Form.Item name="estatura" noStyle>
-                      <InputNumber min={1} max={250} style={{margin: "5%"}}/>
-                    </Form.Item>
-                  </Col>
-
-                  <Col span={6}>
-                    <div>¿Cual es su Edad?</div>
-                    <Form.Item name="edad" noStyle>
-                      <InputNumber min={1} max={100} style={{margin: "3%"}}/>
-                    </Form.Item>
-                    <div>¿Cual es su Peso Objetivo?</div>
-                    <Form.Item name="pesoObjetivo" noStyle>
-                      <InputNumber min={1} max={300} style={{margin: "3%"}}/>
-                    </Form.Item>
-                    <div>¿En cuantos dias pretende conseguir su peso objetivo?</div>
-                    <Form.Item name="diasParaPesObjetivo" noStyle>
-                      <InputNumber min={1} max={100} style={{margin: "3%"}}/>
-                    </Form.Item>
-                  </Col>
-                </Row>
-
+              
                 <Row justify="center" style={{marginTop:"1%"}}>
                   <div style={{padding: 20}}>
                   <h1 style={{ color: "white" }}>Indique si padece de alguna de las siguientes enfermedades</h1>
@@ -211,13 +250,14 @@ class FormularioPage extends Component {
                     </Col>
 
                 </Row>
-
+                
                 <Button id="calcular" shape="round" style={{height: "auto", width: "auto", fontSize: 30}} type="primary" htmlType="submit">Calcular</Button>
+                
               
-              </Form>
           </Col>
-        </Row>
-      </div>
+          </Row>
+          </Form>
+          </div>
     );
   }
 }
